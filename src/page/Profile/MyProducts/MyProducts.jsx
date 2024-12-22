@@ -1,13 +1,12 @@
-import Swal from 'sweetalert2';
-import useProduct from '../../../hooks/useProduct';
-import AdminProductsCard from './AdminProductsCard';
-import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import usePersonalProduct from '../../../hooks/usePersonalProduct';
-import useAuth from '../../../hooks/useAuth';
-import { useState } from 'react';
-import SortByPrice from '../../Products/SortByPrice';
+import Swal from "sweetalert2";
+import MyProductsCard from "./MyProductsCard";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import SortByPrice from "../../Products/SortByPrice";
+import { useState } from "react";
+import usePersonalProduct from "../../../hooks/usePersonalProduct";
+import useAuth from "../../../hooks/useAuth";
 
-const AdminProducts = () => {
+const MyProducts = () => {
     const { user } = useAuth();
     const [selectedBrand, setSelectedBrand] = useState('all');
     const [product] = usePersonalProduct();
@@ -101,7 +100,7 @@ const AdminProducts = () => {
                 <div className="Allserv flex justify-around py-12">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         {sortedProducts.map((product) => (
-                            <AdminProductsCard
+                            <MyProductsCard
                                 key={product._id}
                                 product={product}
                                 handleRemove={handleRemove}
@@ -118,4 +117,4 @@ const AdminProducts = () => {
     );
 };
 
-export default AdminProducts;
+export default MyProducts;

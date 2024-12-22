@@ -1,14 +1,14 @@
 import { useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import Swal from 'sweetalert2';
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 
-const AddProduct = () => {
+const AdminAddProduct = () => {
     const axiosPublic = useAxiosPublic();
     const [image, setImage] = useState(null);
     const { user } = useAuth();
@@ -122,4 +122,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default AdminAddProduct;

@@ -1,14 +1,16 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
+// import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const GoogleLogin = () => {
 
 
     // const { loginWithGoogle } = useAuth();
     const auth = getAuth();
-    const axiosPublic = useAxiosPublic();
+    // const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const provider = new GoogleAuthProvider();
     const location = useLocation();
     const navigate = useNavigate();
@@ -26,7 +28,7 @@ const GoogleLogin = () => {
                 // setUser(userInfo);
 
                 // Display a success message with SweetAlert2
-                axiosPublic.post('/users', userInfo)
+                axiosSecure.post('/users', userInfo)
                     .then(res => {
                         console.log("Done:",res.data);
                         navigate(location?.state ? location.state : '/');

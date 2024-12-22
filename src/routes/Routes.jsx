@@ -12,7 +12,7 @@ import AdminRoute from "./AdminRoute";
 import AdminHome from "../page/Profile/AdminHome/AdminHome";
 import UserHome from "../page/Profile/UserHome/UserHome";
 import AddProduct from "../components/AddProduct/AddProduct";
-import AdminProducts from "../page/Profile/AdminProducts/AdminProducts";
+import MyProducts from "../page/Profile/MyProducts/MyProducts";
 import UpdateProduct from "../components/UpdateProduct/UpdateProduct";
 import ProductDetails from "../page/Details/ProductDetails";
 import Cart from "../page/Profile/Cart/Cart";
@@ -20,6 +20,10 @@ import AllUsers from "../page/Profile/AllUsers/AllUsers";
 import Products from "../page/Products/Products";
 import SellerRoute from "./SellerRoute";
 import SellerHome from "../page/Profile/SellerHome/SellerHome";
+import AdminProducts from "../page/Profile/AdminProducts/AdminProducts";
+import AdminAddProduct from "../components/AdminAddProduct/AdminAddProduct";
+import AdminUpdateProduct from "../components/AdminUpdateProduct/AdminUpdateProduct";
+
 // import Product from "../page/ProductSearch/Product";
 
 
@@ -44,7 +48,7 @@ const router = createBrowserRouter([
         element: <Offer></Offer>
       },
       {
-        path:"/products",
+        path: "/products",
         element: <Products></Products>
       },
       {
@@ -77,7 +81,7 @@ const router = createBrowserRouter([
       {
         path: 'cart',
         element: <Cart></Cart>
-    },
+      },
 
       // Admin Route
       {
@@ -87,18 +91,18 @@ const router = createBrowserRouter([
       {
         path: 'users',
         element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-    },
+      },
       {
-        path: 'addProduct',
-        element: <AdminRoute><AddProduct></AddProduct></AdminRoute>
+        path: 'adminAddProduct',
+        element: <AdminRoute><AdminAddProduct></AdminAddProduct></AdminRoute>
       },
       {
         path: 'adminProducts',
         element: <AdminRoute><AdminProducts></AdminProducts></AdminRoute>
       },
       {
-        path: 'updateProduct/:id',
-        element: <AdminRoute><UpdateProduct></UpdateProduct></AdminRoute>,
+        path: 'adminUpdateProduct/:id',
+        element: <AdminRoute><AdminUpdateProduct></AdminUpdateProduct></AdminRoute>,
         // loader: ({ params }) => fetch(`https://online-camera-shop-server.vercel.app/product/${params.id}`)
         loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
       },
@@ -111,6 +115,10 @@ const router = createBrowserRouter([
       {
         path: 'addProduct',
         element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
+      },
+      {
+        path: 'myProducts',
+        element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
       },
       {
         path: 'updateProduct/:id',

@@ -12,18 +12,6 @@ const Cart = () => {
 
     const axiosPublic = useAxiosPublic();
 
-    // const [quantity, setQuantity] = useState(1);
-
-    // const increaseQuantity = () => {
-    //     setQuantity(quantity + 1);
-    // };
-
-    // const decreaseQuantity = () => {
-    //     if (quantity > 1) {
-    //         setQuantity(quantity - 1);
-    //     }
-    // };
-
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",

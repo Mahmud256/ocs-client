@@ -38,14 +38,14 @@ const Dashboard = () => {
 
                             <div className="divider"></div>
                             <li>
-                                <NavLink to="/profile/addProduct">
+                                <NavLink to="/profile/adminAddProduct">
                                     <MdOutlineAddBusiness />
                                     Add Product
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/profile/adminProducts">
-                                    Product
+                                    Admin Product
                                 </NavLink>
                             </li>
                         </>
@@ -65,19 +65,23 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/profile/sellerProducts">
-                                    Product
+                                <NavLink to="/profile/myProducts">
+                                    My Product
                                 </NavLink>
                             </li>
                         </>
                     ) : (
                         <>
-                            <NavLink to="/profile/userHome">
-                                User Profile
-                            </NavLink>
-                            <NavLink to="/profile/cart">
-                                Cart
-                            </NavLink>
+                            <li>
+                                <NavLink to="/profile/userHome">
+                                    User Profile
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/profile/cart">
+                                    Cart
+                                </NavLink>
+                            </li>
                         </>
                     )}
 
