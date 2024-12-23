@@ -51,7 +51,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="py-12">
+        <div id="contact" className="py-12">
             <div className="max-w-3xl mx-auto p-4 border shadow-md transform transition-transform duration-500 hover:scale-105 hover:shadow-xl bg-gradient-to-br from-white via-gray-100 to-gray-200">
                 <h1 className="text-4xl text-center font-bold pb-4 text-[#15295f]">
                     Contact Me

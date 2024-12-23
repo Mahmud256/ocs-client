@@ -23,6 +23,7 @@ import SellerHome from "../page/Profile/SellerHome/SellerHome";
 import AdminProducts from "../page/Profile/AdminProducts/AdminProducts";
 import AdminAddProduct from "../components/AdminAddProduct/AdminAddProduct";
 import AdminUpdateProduct from "../components/AdminUpdateProduct/AdminUpdateProduct";
+import Wishlist from "../page/Profile/Wishlist/Wishlist";
 
 // import Product from "../page/ProductSearch/Product";
 
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
       {
         path: 'cart',
         element: <Cart></Cart>
+      },
+      {
+        path: 'wishlist',
+        element: <Wishlist></Wishlist>
       },
 
       // Admin Route

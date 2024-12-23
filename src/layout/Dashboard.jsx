@@ -82,6 +82,11 @@ const Dashboard = () => {
                                     Cart
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink to="/profile/wishlist">
+                                    wishlist
+                                </NavLink>
+                            </li>
                         </>
                     )}
 
