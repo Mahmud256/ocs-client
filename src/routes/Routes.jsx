@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         // loader: () => fetch('https://online-camera-shop-server.vercel.app/product')
-        // loader: () => fetch('http://localhost:5000/product')
+        // loader: () => fetch('https://ocs-server.vercel.app/product')
       },
       // {
       //   path: "/category",
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
         path: '/details/:_id',
         element: <PrivateRoutes><ProductDetails></ProductDetails></PrivateRoutes>,
         // loader: () => fetch(`https://online-camera-shop-server.vercel.app/product`)
-        loader: () => fetch(`http://localhost:5000/product`)
+        loader: () => fetch(`https://ocs-server.vercel.app/product`)
       }
 
     ]
@@ -109,7 +109,7 @@ const router = createBrowserRouter([
         path: 'adminUpdateProduct/:id',
         element: <AdminRoute><AdminUpdateProduct></AdminUpdateProduct></AdminRoute>,
         // loader: ({ params }) => fetch(`https://online-camera-shop-server.vercel.app/product/${params.id}`)
-        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({ params }) => fetch(`https://ocs-server.vercel.app/product/${params.id}`)
       },
 
       // Seller Route
@@ -129,7 +129,7 @@ const router = createBrowserRouter([
         path: 'updateProduct/:id',
         element: <SellerRoute><UpdateProduct></UpdateProduct></SellerRoute>,
         // loader: ({ params }) => fetch(`https://online-camera-shop-server.vercel.app/product/${params.id}`)
-        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({ params }) => fetch(`https://ocs-server.vercel.app/product/${params.id}`)
       }
     ]
   }

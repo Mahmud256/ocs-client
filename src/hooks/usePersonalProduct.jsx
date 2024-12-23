@@ -8,7 +8,7 @@ export const usePersonalProduct = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             if (user?.email) {
-                const url = `http://localhost:5000/product?email=${user.email}`;
+                const url = `https://ocs-server.vercel.app/product?email=${user.email}`;
                 try {
                     const response = await fetch(url);
                     const data = await response.json();
