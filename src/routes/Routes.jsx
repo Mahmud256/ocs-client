@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../layout/Layout";
-// import Category from "../page/Category/Category";
 import Home from "../page/Home/Home";
 import Login from "../page/Login/Login";
 import Signup from "../page/Signup/Signup";
@@ -40,10 +39,6 @@ const router = createBrowserRouter([
         // loader: () => fetch('https://online-camera-shop-server.vercel.app/product')
         // loader: () => fetch('https://ocs-server.vercel.app/product')
       },
-      // {
-      //   path: "/category",
-      //   element: <Category></Category>
-      // },
       {
         path: "/offer",
         element: <Offer></Offer>

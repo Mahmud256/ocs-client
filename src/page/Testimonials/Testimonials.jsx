@@ -38,37 +38,11 @@ const testimonials = [
 
 const Testimonials = () => {
     return (
-        <div className="bg-gray-100 py-12">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gray-50 py-12">
+            <div className="mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-3xl font-extrabold text-center text-gray-900">
                     What Our Customers Say
                 </h2>
-                {/* <Marquee direction="right">
-                    <div className="marquee-content flex gap-4">
-                        {testimonials.map((testimonial) => (
-                            <div
-                                key={testimonial.id}
-                                className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow"
-                            >
-                                <div className="flex items-center space-x-4">
-                                    <img
-                                        className="w-16 h-16 rounded-full"
-                                        src={testimonial.image}
-                                        alt={testimonial.name}
-                                    />
-                                    <div>
-                                        <h3 className="text-lg font-semibold">{testimonial.name}</h3>
-                                        <p className="text-yellow-500">
-                                            {"★".repeat(testimonial.rating)}
-                                            {"☆".repeat(5 - testimonial.rating)}
-                                        </p>
-                                    </div>
-                                </div>
-                                <p className="mt-4 text-gray-600">{testimonial.review}</p>
-                            </div>
-                        ))}
-                    </div>
-                </Marquee> */}
 
                 <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {testimonials.map((testimonial) => (

@@ -22,7 +22,7 @@ const Products = () => {
         if (window.innerWidth <= 640) {
             setProductPerPage(20);
         } else {
-            setProductPerPage(8);
+            setProductPerPage(10);
         }
     };
 
@@ -120,8 +120,8 @@ const Products = () => {
                 </li>
             </ul>
             {displayProduct.length > 0 ? (
-                <div className="Allserv flex justify-around py-12">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="Allserv flex justify-around py-12 px-8">
+                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                         {displayProduct.map((product) => (
                             <ProductsCard key={product._id} product={product} />
                         ))}

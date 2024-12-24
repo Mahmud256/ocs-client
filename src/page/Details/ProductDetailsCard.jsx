@@ -4,12 +4,13 @@ import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import useWishlist from "../../hooks/usewishlist";
-
+import useUsers from "../../hooks/useUsers";
 
 const ProductDetailsCard = ({ product }) => {
   const { _id, name, brand, price, photos, description } = product || {};
 
   const { user } = useAuth();
+  const { users } = useUsers();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -17,6 +18,9 @@ const ProductDetailsCard = ({ product }) => {
   const [, refetchWishlist] = useWishlist();
   const axiosSecure = useAxiosSecure();
 
+  // Get the current user's role
+  const currentUser = users?.find((u) => u.email === user?.email);
+  const userRole = currentUser?.role;
 
   const handleAddToCart = () => {
     if (user && user.email) {
@@ -28,19 +32,18 @@ const ProductDetailsCard = ({ product }) => {
         price,
       };
       console.log(cartProduct);
-      axiosSecure.post('cart', cartProduct)
-        .then(res => {
-          if (res.data.insertedId) {
-            Swal.fire({
-              position: "top-center",
-              icon: "success",
-              title: `${name} added to your cart`,
-              showConfirmButton: false,
-              timer: 1500,
-            });
-            refetchCart();
-          }
-        });
+      axiosSecure.post("cart", cartProduct).then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: `${name} added to your cart`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          refetchCart();
+        }
+      });
     } else {
       Swal.fire({
         title: "You are not Logged In",
@@ -52,7 +55,7 @@ const ProductDetailsCard = ({ product }) => {
         confirmButtonText: "Yes, Login",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate('/login', { state: { from: location } });
+          navigate("/login", { state: { from: location } });
         }
       });
     }
@@ -70,8 +73,9 @@ const ProductDetailsCard = ({ product }) => {
 
       console.log(wishlistProduct);
 
-      axiosSecure.post('wishlist', wishlistProduct)
-        .then(res => {
+      axiosSecure
+        .post("wishlist", wishlistProduct)
+        .then((res) => {
           if (res.data.insertedId) {
             Swal.fire({
               position: "top-center",
@@ -83,7 +87,7 @@ const ProductDetailsCard = ({ product }) => {
             refetchWishlist();
           }
         })
-        .catch(error => {
+        .catch((error) => {
           if (error.response && error.response.status === 400) {
             Swal.fire({
               position: "top-center",
@@ -113,7 +117,7 @@ const ProductDetailsCard = ({ product }) => {
         confirmButtonText: "Yes, Login",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate('/login', { state: { from: location } });
+          navigate("/login", { state: { from: location } });
         }
       });
     }
@@ -131,19 +135,27 @@ const ProductDetailsCard = ({ product }) => {
         <h1 className="text-2xl font-bold mb-2">{name}</h1>
         <p className="text-gray-600 mb-2">Brand: {brand}</p>
         <p className="text-gray-800 mb-4">{description}</p>
-        <p className="text-xl font-bold mb-4">Price: <span className='text-blue-500'>$ {price}</span></p>
+        <p className="text-xl font-bold mb-4">
+          Price: <span className="text-blue-500">$ {price}</span>
+        </p>
 
         {/* Conditionally render Add to Cart and Wishlist Buttons */}
-
+        {userRole !== "admin" && userRole !== "seller" && (
           <div className="flex gap-2">
-            <button onClick={handleAddToCart} className="bg-blue-200 hover:bg-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-md focus:outline-none focus:bg-blue-600">
+            <button
+              onClick={handleAddToCart}
+              className="bg-blue-200 hover:bg-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-md focus:outline-none focus:bg-blue-600"
+            >
               Add to Cart
             </button>
-            <button onClick={handleAddToWishlist} className="bg-blue-200 hover:bg-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-md focus:outline-none focus:bg-blue-600">
+            <button
+              onClick={handleAddToWishlist}
+              className="bg-blue-200 hover:bg-blue-600 text-blue-500 hover:text-white px-4 py-2 rounded-md focus:outline-none focus:bg-blue-600"
+            >
               Add to Wishlist
             </button>
           </div>
-    
+        )}
       </div>
     </div>
   );
