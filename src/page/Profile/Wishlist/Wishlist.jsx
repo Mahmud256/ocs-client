@@ -2,10 +2,11 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useWishlist from "../../../hooks/usewishlist";
 import { FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Wishlist = () => {
     const [wishlist, refetch] = useWishlist();
-    
+
     const axiosPublic = useAxiosPublic();
 
     const handleDelete = (id) => {
@@ -62,20 +63,21 @@ const Wishlist = () => {
                                 <th>
                                     {index + 1}
                                 </th>
-                                <td>
-                                    <div className="flex products-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img src={product.photos} alt="Avatar Tailwind CSS Component" />
+                                <Link to={`/details/${product.productId}`}>
+                                    <td>
+                                        <div className="flex products-center gap-3">
+                                            <div className="avatar">
+                                                <div className="mask mask-squircle w-12 h-12">
+                                                    <img src={product.photos} alt="Avatar Tailwind CSS Component" />
+                                                </div>
                                             </div>
-
-
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    {product.name}
-                                </td>
+                                    </td>
+                                    <td>
+                                        {product.name}
+                                    </td>
+                                </Link>
+
                                 <td>${product.price}</td>
                                 <th>
                                     <button

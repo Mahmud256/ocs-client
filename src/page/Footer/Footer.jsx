@@ -48,7 +48,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="text-center p-4 bg-[#151515] text-white text-base">
-                <p>Copyright © 2023 - All right reserved by OGS</p>
+                <p>Copyright © 2023 - All right reserved by OCS</p>
             </div>
         </footer>
     );

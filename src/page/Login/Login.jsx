@@ -29,7 +29,7 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md p-9 w-full space-y-8 bg-white">
         <div>
-          <h2 className="text-center text-3xl font-extrabold text-gray-900">Log in to OGS</h2>
+          <h2 className="text-center text-3xl font-extrabold text-gray-900">Log in to OCS</h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={(e) => e.preventDefault()}>
           <input type="hidden" name="remember" defaultValue="true" />

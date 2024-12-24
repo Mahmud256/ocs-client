@@ -89,8 +89,8 @@ const Products = () => {
             </div>
             <ul className="flex text-lg justify-center space-x-4 my-4">
                 <li>
-                <div
-                        className={`flex items-center w-52 p-2 border-4 border-red-700 rounded-md shadow-sm`}
+                    <div
+                        className={`flex items-center w-52 p-2 border-4 bg-white border-red-700 rounded-md shadow-sm`}
                         onMouseEnter={handleMouseEnterList}
                         onMouseLeave={handleMouseLeaveList}
                     >

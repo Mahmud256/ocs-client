@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const ProductSearch = ({ searchTerm, setSearchTerm, handleSearch }) => {
     return (
@@ -9,7 +9,7 @@ const ProductSearch = ({ searchTerm, setSearchTerm, handleSearch }) => {
                         <input
                             type="text"
                             className="block w-full p-3 pl-4 outline-none bg-[#eaefef]"
-                            placeholder="Search in OGS"
+                            placeholder="Search in OCS"
                             value={searchTerm}
                             onChange={(e) => {
                                 setSearchTerm(e.target.value);

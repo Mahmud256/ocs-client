@@ -73,26 +73,20 @@ const Cart = () => {
                                 <th>
                                     {index + 1}
                                 </th>
-                                <td>
-                                    <div className="flex products-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img src={product.photos} alt="Avatar Tailwind CSS Component" />
+                                <Link to={`/details/${product.productId}`}>
+                                    <td>
+                                        <div className="flex products-center gap-3">
+                                            <div className="avatar">
+                                                <div className="mask mask-squircle w-12 h-12">
+                                                    <img src={product.photos} alt="Avatar Tailwind CSS Component" />
+                                                </div>
                                             </div>
-
-                                            {/* Quantity Controls */}
-                                            {/* <div className="flex items-center mb-4">
-                                                <button className="px-2 py-1 bg-gray-200 text-gray-700 rounded" onClick={decreaseQuantity}>-</button>
-                                                <span className="mx-2">{quantity}</span>
-                                                <button className="px-2 py-1 bg-gray-200 text-gray-700 rounded" onClick={increaseQuantity}>+</button>
-                                            </div> */}
-
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    {product.name}
-                                </td>
+                                    </td>
+                                    <td>
+                                        {product.name}
+                                    </td>
+                                </Link>
                                 <td>${product.price}</td>
                                 <th>
                                     <button
