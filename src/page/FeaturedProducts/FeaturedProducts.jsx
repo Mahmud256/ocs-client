@@ -80,22 +80,24 @@ const FeaturedProducts = () => {
                 <h2 className="text-3xl font-extrabold text-center text-gray-900">
                     Featured Products
                 </h2>
-                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                    {products.map((product) => (
-                        <div
-                            key={product.id}
-                            className="max-w-xs h-full overflow-hidden hover:shadow-lg bg-white"
-                        >
+                <div className="Allserv flex justify-around py-12 px-8">
+                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                        {products.map((product) => (
+                            <div
+                                key={product.id}
+                                className="max-w-xs h-full overflow-hidden hover:shadow-lg bg-white"
+                            >
 
-                            <img src={product.image} alt={product.name} className="w-full" />
-                            <div className="px-4 py-2">
-                                <h2 className="font-semibold">{product.name}</h2>
-                                {/* <h3 className="text-center text-sm text-gray-600">{brand}</h3> */}
+                                <img src={product.image} alt={product.name} className="w-full" />
+                                <div className="px-4 py-2">
+                                    <h2 className="font-semibold">{product.name}</h2>
+                                    {/* <h3 className="text-center text-sm text-gray-600">{brand}</h3> */}
 
-                                <h2 className="text-lg font-bold">{product.price}</h2>
+                                    <h2 className="text-lg font-bold">{product.price}</h2>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
